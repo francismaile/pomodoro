@@ -1,0 +1,345 @@
+*, *:before, *:after {
+    -webkit-user-select: none; /* Chrome/Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+ */
+    user-select: none;
+    outline: none;
+}
+
+#wrapper {
+  /*background: url(https://dl.dropboxusercontent.com/s/4c408ftiev7fi3l/tomato.png) no-repeat;*/
+  background: url(images/tomato.png) no-repeat;
+  background-size: contain;
+  width: 960px;
+  height: 960px;
+  margin: 30px auto 0px;
+}
+/* https://openclipart.org/image/600px/svg_to_png/2543/Machovka-tomato2.png */
+#timerDisplay {
+  /*border: 1px solid;*/
+  position: relative;
+  top: 180px;
+  width: 90%;
+  margin: 10px auto;
+  user-select: none;
+  cursor: pointer;
+  text-align: center;
+  font-size: 298px;
+}
+
+#timerLabel {
+  /*border: 1px solid;*/
+  position: relative;
+  top: 100px;
+  width: 300px;
+  height: 100px;
+  margin: 10px auto;
+  padding: 20px;
+  text-align: center;
+  font-size: 64px;
+}
+
+#checkMarks {
+  /*border: 1px solid;*/
+  position: relative;
+  top: 50px;
+  height: 80px;
+  max-width: 220px;
+  margin: 10px auto;
+  font-size: 64px;
+}
+/*
+✔︎
+HEAVY CHECK MARK
+Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
+&#9745;	&#x2611;
+✓	 	&#10003;	&#x2713;	checkmark sign
+✔	 	&#10004;	&#x2714;	checkmark sign
+*/
+
+#timeSetWrapper {
+  /*border: 1px solid;*/
+  position: relative;
+  top: -360px;
+  width: 880px;
+  height: 120px;
+  margin: 0 auto;
+  padding: 60px 0px;
+  background: #FF0000;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.timeSetLabel {
+  margin: 1px 20px;
+  width: 250px;
+  text-align: center;
+  font-size: 34px;
+}
+
+.timerSet {
+  outline-style: none;
+  border-radius: 50px 50px;
+  margin: 1px 20px;
+  width: 250px;
+  height: 80px;
+  cursor: pointer;
+  background: white;
+  text-align: center;
+  font: normal 44px/1.75 monospace;
+}
+
+.timerSet:hover::before {
+  content: "- ";
+}
+
+.timerSet:hover::after {
+  content: " +";
+}
+
+#settingsBtn {
+  position: relative;
+  top: 50px;
+  margin: 0px auto;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  background-image: url(images/settings-filled.png);
+  transition-duration: 0.5s;
+  transition-property: transform;
+}
+
+#settingsBtn.on {
+  background-image: url(images/settings.png);
+}
+
+#settingsBtn.off {
+  background-image: url(images/settings-filled.png);
+}
+
+#settingsBtn.on:hover {
+  transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+}
+
+#settingsBtn.off:hover {
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+}
+/******************/
+/**  Help System **/
+/******************/
+#help-button {
+  cursor: pointer;
+  position: fixed;
+  top: 3px;
+  left: 3px;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #FFF url(images/help.png) center no-repeat;
+  /*opacity: 1.0;*/
+}
+
+#help-button.open {
+  background-image: url(images/delete.png);
+  background-size: 75%;
+  background-color: #FFF;
+}
+
+#help {
+  display: none; /* just while working on it*/
+  /*display: none;*/
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(102, 102, 102, 0.6);
+}
+
+.help-text {
+  font: normal 34px system-ui;
+  color: #FFF;
+}
+
+#help.show {
+  display: block;
+}
+
+#aboutPT {
+  position: relative;
+  top: 750px;
+  border-radius: 12px;
+  width: 800px;;
+  height: 600px;
+  margin: 0px auto;
+  background-color: #FFF;
+}
+
+#aboutPT div#content {
+  /*border: 1px solid;*/
+  height: 500px;
+  padding: 2px 18px;
+  overflow: scroll;
+  font-size: 28px;
+}
+
+#aboutPT h2 {
+  position: relative;
+  top: 0px;
+  margin: 2px;
+  text-align: center;
+  font-size: 46px;
+}
+
+#help-help-button {
+  position: absolute;
+  top:12px;
+  left: 70px;
+  color: #000;
+}
+
+.animated {
+   -webkit-animation-duration: 5s; animation-duration: 5s;
+   -webkit-animation-fill-mode: both;animation-fill-mode: both;
+}
+
+@-webkit-keyframes fadeOut {
+   0% {opacity: 1;}
+   100% {opacity: 0;}
+}
+
+@keyframes fadeOut {
+   0% {opacity: 1;}
+   100% {opacity: 0;}
+}
+
+.fadeOut {
+   -webkit-animation-name: fadeOut;
+   animation-name: fadeOut;
+}
+
+#help-settings {
+  position: absolute;
+  top: 82px;
+  left: 540px;
+}
+
+#help-start-timer {
+  position: absolute;
+  top: 400px;
+  left: 140px;
+}
+
+#help-stop-timer {
+  position: absolute;
+  top: 450px;
+  left: 24px;
+}
+
+#help-reset-timer {
+  position: absolute;
+  top: 382px;
+  left: 640px;
+}
+
+/* END Help System */
+
+/*****************/
+/**  Show Info  **/
+/*****************/
+#info {
+  border: 3px solid;
+  position: absolute;
+  display: none;
+  top: 50px;
+  height: 180px;
+  width: 600px;
+  margin: 10px auto;
+  padding: 8px;
+  background: #FFF;
+  /* center absolutely positioned: https://css-tricks.com/forums/topic/horizontal-centering-of-an-absolute-element/ */
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+#info.show {
+	display: block;
+}
+
+#get-info-button {
+  cursor: pointer;
+  position: fixed;
+  top: 3px;
+  left: 90%;
+  height: 50px;
+  width: 50px;
+  padding: 3px;
+  border-radius: 50%;
+  background: #FFF url(images/info.png) center no-repeat;
+  opacity: 1.0;
+}
+
+#get-info-button.open {
+  background-image: url(images/info-filled.png);
+  background-size: 100%;
+  background-color: #FFF;
+}
+
+#info.show {
+  display: block;
+}
+
+/* END Get Info */
+
+@media only screen and (max-device-width: 480px) {
+
+}
+
+/* css arrows used with help texts */
+/* based on: https://stackoverflow.com/questions/27492191/how-to-make-a-fancy-arrow-using-css#answer-27492402 */
+
+[class$=-arrow]::before,[class$=-arrow]::after {
+  position: relative;
+  content: "";
+  /* By using an em scale, the arrows will size with the font */
+  width: 0.4em;
+  height: 0.4em;
+
+  transform: rotate(45deg);
+  display: inline-block;
+  border-color: #FFF
+}
+
+.right-arrow::after {
+    border-right: 0.2em solid;
+    border-top: 0.2em solid;
+    margin-right: 0.5em;
+}
+
+.left-arrow::before {
+    border-left: 0.2em solid;
+    border-bottom: 0.2em solid;
+    top: -3pt;
+    margin-right: 0.2em;
+}
+
+.top-arrow::before {
+    position: relative;
+    left: 130px;
+    border-left: 0.2em solid;
+    border-top: 0.2em solid;
+    margin-bottom: 0.75em;
+}
+
+.bottom-arrow::before {
+    left: 130px;
+    top: 0.75em;;
+    border-right: 0.2em solid;
+    border-bottom: 0.2em solid;
+}
