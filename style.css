@@ -10,20 +10,20 @@
   /*background: url(https://dl.dropboxusercontent.com/s/4c408ftiev7fi3l/tomato.png) no-repeat;*/
   background: url(images/tomato.png) no-repeat;
   background-size: contain;
-  width: 820px;
-  height: 820px;
+  width: 720px;
+  height: 720px;
   margin: 30px auto 0px;
 }
 /* https://openclipart.org/image/600px/svg_to_png/2543/Machovka-tomato2.png */
 #timerDisplay {
   position: relative;
-  top: 180px;
+  top: 130px;
   width: 90%;
   margin: 10px auto;
   user-select: none;
   cursor: pointer;
   text-align: center;
-  font-size: 298px;
+  font-size: 16em;
 }
 
 #timerLabel {
@@ -34,7 +34,7 @@
   margin: 10px auto;
   padding: 20px;
   text-align: center;
-  font-size: 64px;
+  font-size: 4em;
 }
 
 #checkMarks {
@@ -43,7 +43,7 @@
   height: 80px;
   max-width: 220px;
   margin: 10px auto;
-  font-size: 64px;
+  font-size: 4em;
 }
 /*
 ✔︎
@@ -57,7 +57,7 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
 #timeSetWrapper {
   position: relative;
   top: -360px;
-  width: 880px;
+  width: 620px;
   height: 120px;
   margin: 0 auto;
   padding: 60px 0px;
@@ -65,38 +65,38 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
   display: none;
   flex-direction: row;
   flex-wrap: wrap;
-}
-
-.timeSetLabel {
-  margin: 1px 20px;
-  width: 250px;
-  text-align: center;
-  font-size: 34px;
+	justify-content: space-between;
 }
 
 .timerSet {
   outline-style: none;
   border-radius: 50px 50px;
-  margin: 1px 20px;
-  width: 250px;
-  height: 80px;
+  width: 30%;
+  height: 60px;
   cursor: pointer;
   background: white;
   text-align: center;
-  font: normal 44px/1.75 monospace;
+  font: normal 44px/1.25 monospace;
 }
 
-.timerSet:hover::before {
+.timerSet div.timeSetLabel {
+  width: 100%;
+	margin-top: 6px;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+.timerSet:hover > span::before {
   content: "- ";
 }
 
-.timerSet:hover::after {
+.timerSet:hover > span::after {
   content: " +";
 }
 
 #settingsBtn {
   position: relative;
-  top: 50px;
+  top: 36px;
   margin: 0px auto;
   width: 50px;
   height: 50px;
@@ -123,6 +123,7 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
   transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
 }
+
 /******************/
 /**  Help System **/
 /******************/
@@ -163,32 +164,6 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
 
 #help.show {
   display: block;
-}
-
-#aboutPT {
-  position: relative;
-  top: 750px;
-  border-radius: 12px;
-  width: 800px;;
-  height: 600px;
-  margin: 0px auto;
-  background-color: #FFF;
-}
-
-#aboutPT div#content {
-  /*border: 1px solid;*/
-  height: 500px;
-  padding: 2px 18px;
-  overflow: scroll;
-  font-size: 28px;
-}
-
-#aboutPT h2 {
-  position: relative;
-  top: 0px;
-  margin: 2px;
-  text-align: center;
-  font-size: 46px;
 }
 
 #help-help-button {
@@ -249,10 +224,9 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
 /*****************/
 #info {
   border: 3px solid;
-  position: absolute;
   display: none;
   top: 50px;
-  height: 180px;
+  height: 680px;
   width: 600px;
   margin: 10px auto;
   padding: 8px;
@@ -265,7 +239,9 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
 }
 
 #info.show {
-	display: block;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
 }
 
 #get-info-button {
@@ -287,8 +263,34 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
   background-color: #FFF;
 }
 
-#info.show {
-  display: block;
+#aboutPT {
+  position: relative;
+  border-radius: 12px;
+  height: 550px;
+  margin: 0px auto;
+  background-color: #FFF;
+}
+
+#aboutPT div#content {
+  height: 500px;
+  padding: 2px 18px;
+  overflow: scroll;
+  font-size: 22px;
+}
+
+#aboutPT h2 {
+  position: relative;
+  top: 0px;
+  margin: 2px;
+  text-align: center;
+  font-size: 36px;
+}
+
+#credits {
+}
+
+#credits h2 {
+	margin: 2px 0px 4px;
 }
 
 /* END Get Info */

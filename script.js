@@ -1,6 +1,8 @@
 // TODO make credits popup on mouseover for desktop or click (tap) for iOS
 // FIXME Doesn't work on iPad
 // TODO make responsive
+// TODO lock out everything when showing info or help
+
 
 const timerDisplay = document.getElementById('timerDisplay');
 const endChime = new Audio("Electronic_Chime.wav");
@@ -92,7 +94,7 @@ function controlTimer() {
 timerDisplay.addEventListener('mouseup', controlTimer );
 timerDisplay.addEventListener('mousedown', function() {
 	if(!timerPaused) return false;
-	holdForReset = setTimeout( reset, 2000);
+	holdForReset = setTimeout( reset, 1000);
 });
 
 // Settings: timer settings
@@ -102,11 +104,11 @@ timeSetters.forEach( timeSetBtn => timeSetBtn.addEventListener('click', function
    const leftThird = Math.round(rect.left + rect.width / 3);
    const rightThird = Math.round(rect.left + rect.width * 2 / 3);
    if (e.clientX < leftThird) {
-     this.textContent = this.textContent > 1 ? parseInt(this.textContent, 10) - 1 : 1;
+     this.firstChild.textContent = this.firstChild.textContent > 1 ? parseInt(this.firstChild.textContent, 10) - 1 : 1;
    } else if (e.clientX > rightThird) {
-     this.textContent = parseInt(this.textContent, 10) + 1;
+     this.firstChild.textContent = parseInt(this.firstChild.textContent, 10) + 1;
    }
-   if(this.id === "taskSession") timerDisplay.textContent = this.textContent;
+   if(this.id === "taskSession") timerDisplay.textContent = this.firstChild.textContent;
   })
 );
 
@@ -127,9 +129,8 @@ function reset() {
    pomoCounter = 0;
    imerPaused = false;
    timerRunning = false;
-   // FIXME i can't remember what or why
    checkMarks.textContent = '';
-   timerDisplay.textContent = taskTime.textContent;
+   timerDisplay.textContent = taskTime.firstChild.textContent;
    timerLabel.textContent = '';
    document.title = "Pomato";
 }
