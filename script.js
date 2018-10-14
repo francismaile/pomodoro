@@ -64,7 +64,6 @@ function sessionTracker() {
 }
 
 let holdForReset = 0;
-// TODO should not need to pause then reset, just hold to reset
 
 function controlTimer() {
   clearTimeout(holdForReset);
@@ -82,68 +81,19 @@ function controlTimer() {
     if (timerPaused) {
       timerPaused = false;
     } else {
-      // next two lines are needed to make iOS play the sound.
-      // without a touch event to play sound initially,
-      // iOS won't play sound when timer is done
-      if( isMobile.iOS() ) {
-        // this might do it. only do what iOS needs if we are on an iOS
-        endChime.play();
-        endChime.pause();
-      }
+			endChime.play();
+			endChime.pause();
       sessionTracker();
 
     }
   }
 }
 
-// FIXME error: Uncaught (in promise) DOMException: The play() request was interrupted by a call to pause(). https://goo.gl/LdLk22
-/*
-Google recommends this fix: https://developers.google.com/web/updates/2017/06/play-request-was-interrupted#fix
-// Show loading animation.
-var playPromise = video.play();
-
-if (playPromise !== undefined) {
-  playPromise.then(_ => {
-    // Automatic playback started!
-    // Show playing UI.
-  })
-  .catch(error => {
-    // Auto-play was prevented
-    // Show paused UI.
-  });
-}
-*/
-
 timerDisplay.addEventListener('mouseup', controlTimer );
 timerDisplay.addEventListener('mousedown', function() {
 	if(!timerPaused) return false;
 	holdForReset = setTimeout( reset, 2000);
 });
-
-// if( isMobile.iOS() ) {
-//   timerDisplay.addEventListener('touchend', controlTimer );
-// 
-//   timerDisplay.addEventListener('touchstart', function() {
-//     if(!timerPaused) return false;
-//     holdForReset = setTimeout( reset, 2000);
-//   });
-
-// TODO make credits a tap button pop up for iOS
-  // const credits = document.getElementById('credits');
-  // credits.addEventListener('touchstart', function() {
-  //   credits.classList.toggle('show');
-  //   credits.classList.toggle('hide');
-  //   alert(credits.classList);
-  // });
-
-// } else {
-//   timerDisplay.addEventListener('mouseup', controlTimer );
-// 
-//   timerDisplay.addEventListener('mousedown', function() {
-//     if(!timerPaused) return false;
-//     holdForReset = setTimeout( reset, 2000);
-//   });
-// }
 
 // Settings: timer settings
 const timeSetters = document.querySelectorAll('.timerSet');
@@ -171,13 +121,11 @@ function toggleSettings() {
   }
 }
 
-// TODO reset should not clear all displays - leave checkmarks in place
-// Reset should clear displays
- function reset() {
+function reset() {
    clearInterval(countDown);
    countDown = 0;
    pomoCounter = 0;
-   //timerPaused = false;
+   imerPaused = false;
    timerRunning = false;
    // FIXME i can't remember what or why
    checkMarks.textContent = '';

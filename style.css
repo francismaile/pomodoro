@@ -10,13 +10,12 @@
   /*background: url(https://dl.dropboxusercontent.com/s/4c408ftiev7fi3l/tomato.png) no-repeat;*/
   background: url(images/tomato.png) no-repeat;
   background-size: contain;
-  width: 960px;
-  height: 960px;
+  width: 820px;
+  height: 820px;
   margin: 30px auto 0px;
 }
 /* https://openclipart.org/image/600px/svg_to_png/2543/Machovka-tomato2.png */
 #timerDisplay {
-  /*border: 1px solid;*/
   position: relative;
   top: 180px;
   width: 90%;
@@ -28,7 +27,6 @@
 }
 
 #timerLabel {
-  /*border: 1px solid;*/
   position: relative;
   top: 100px;
   width: 300px;
@@ -40,7 +38,6 @@
 }
 
 #checkMarks {
-  /*border: 1px solid;*/
   position: relative;
   top: 50px;
   height: 80px;
@@ -58,7 +55,6 @@ Unicode: U+2714 U+FE0E, UTF-8: E2 9C 94 EF B8 8E
 */
 
 #timeSetWrapper {
-  /*border: 1px solid;*/
   position: relative;
   top: -360px;
   width: 880px;
