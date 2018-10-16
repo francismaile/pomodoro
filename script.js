@@ -83,6 +83,7 @@ function controlTimer() {
     if (timerPaused) {
       timerPaused = false;
     } else {
+			timerDisplay.style.fontSize = '10em';
 			endChime.play();
 			endChime.pause();
       sessionTracker();
@@ -124,15 +125,16 @@ function toggleSettings() {
 }
 
 function reset() {
-   clearInterval(countDown);
-   countDown = 0;
-   pomoCounter = 0;
-   imerPaused = false;
-   timerRunning = false;
-   checkMarks.textContent = '';
-   timerDisplay.textContent = taskTime.firstChild.textContent;
-   timerLabel.textContent = '';
-   document.title = "Pomato";
+	clearInterval(countDown);
+	countDown = 0;
+	pomoCounter = 0;
+	imerPaused = false;
+	timerRunning = false;
+	checkMarks.textContent = '';
+	timerDisplay.textContent = taskTime.firstChild.textContent;
+	timerLabel.textContent = '';
+	timerDisplay.style.fontSize = '16em';
+	document.title = "Pomato";
 }
 
 const timerSettings = document.getElementById('timeSetWrapper');
@@ -159,3 +161,4 @@ document.getElementById('get-info-button').addEventListener('click', function() 
 //   // const minutes = end.getMinutes();
 //   endTime.textContent = `Be back at: ${end}`; //${hour}:${minutes}`;
 // }
+
